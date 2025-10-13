@@ -4,6 +4,8 @@
     <title>Dashboard - My Income and Expense App</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="app.js"></script>
 </head>
 
 <header class="bg-gradient-to-r from-green-500 to-pink-500 text-white py-4 shadow-md text-center rounded-b-sm">
@@ -14,6 +16,10 @@
 <body class="min-h-screen bg-gradient-to-br from-gray-100 via-blue-100 to-green-100">
     <div class="max-w-md mx-auto mt-10 bg-white rounded-lg shadow-md p-6">
         <h1 class="text-2xl font-bold mb-4 text-center">Dashboard</h1>
+        <div class="mt-6">
+            <h2 class="text-lg font-semibold mb-2 text-center">Expenses by Category</h2>
+            <canvas id="expenseChart" class="w-full h-64"></canvas>
+        </div>
         <div class="mb-6">
             <p class="text-lg">Total Income: $<span id="total-income" class="font-semibold text-green-600">0</span></p>
             <p class="text-lg">Total Expense: $<span id="total-expense" class="font-semibold text-red-600">0</span></p>
@@ -24,6 +30,5 @@
             <a href="history.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">📃 View History</a>
         </div>
     </div>
-    <script src="app.js"></script>
 </body>
 </html>

@@ -4,8 +4,35 @@
     <title>Transaction History - My Income and Expense App</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="module" src="app.js"></script>
 </head>
+
 <body>
     <div id="transaction-list" class="max-w-md mx-auto mt-10 bg-white rounded-lg shadow-md p-6 border-2" style="border-color: #ddd;">
+        <h2 class="text-lg font-semibold mb-4">Transaction History</h2>
+        <div class="flex justify-between mb-4"></div>
+            <div class="text-green-600 font-bold">Total Income: <span id="total-income">$0.00</span></div>
+            <div class="text-red-600 font-bold">Total Expenses: <span id="total-expense">$0.00</span></div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="budget-tracker min-w-full text-sm">
+                <thead>
+                    <tr class="bg-gray-100">
+                        <th class="py-2 px-3 text-left">Date</th>
+                        <th class="py-2 px-3 text-left">Category</th>
+                        <th class="py-2 px-3 text-left">Amount</th>
+                        <th class="py-2 px-3 text-left">Notes</th>
+                        <th class="py-2 px-3 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="transaction-history">
+                    <!-- Transactions will be dynamically inserted here -->
+                </tbody>
+        </div>
+        <button id="back-button" class="mt-6 w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+            <i class="fas fa-arrow-left mr-2"></i> <a href="index.html" class="underline">Back to Dashboard</a>
+        </button>
+    </div>
 </body>
 </html>
