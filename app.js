@@ -1,6 +1,3 @@
-// app.js
-
-// ---------- Utility Functions ----------
 function getTransactions() {
   return JSON.parse(localStorage.getItem("transactions")) || [];
 }
@@ -81,6 +78,7 @@ if (document.title.includes("Add Transaction")) {
     const amount = parseFloat(document.getElementById("amount").value);
     const date = document.getElementById("date").value;
     const notes = document.getElementById("notes").value.trim();
+    const recurring = document.getElementById("recurring").checked;
 
     if (!type || !category || !amount || !date) {
       alert("⚠️ Please fill out all required fields.");
@@ -95,6 +93,7 @@ if (document.title.includes("Add Transaction")) {
       amount: Math.abs(amount),
       date,
       notes,
+      recurring,
     };
 
     transactions.push(newTransaction);
@@ -141,6 +140,11 @@ if (document.title.includes("Transaction History")) {
 
       if (t.type === "income") totalIncome += amount;
       else totalExpense += amount;
+
+      const budgetLimit = 100000;
+      if (totalExpense > budgetLimit) {
+        alert("⚠️ You have exceeded your budget limit!");
+      }
     });
 
     totalIncomeEl.textContent = formatCurrency(totalIncome);
